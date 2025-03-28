@@ -42,6 +42,13 @@ async def parse_store(
 ) -> LocalStore | MemoryStore | FsspecStore | ZipStore:
     if store == "local":
         return await LocalStore.open(path)
+    if store == "obstore":
+        import obstore
+        from zarr.storage import ObjectStore
+
+        local_store = obstore.store.LocalStore(prefix=path, mkdir=True)
+        return ObjectStore(store=local_store)
+        return await LocalStore.open(path)
     if store == "memory":
         return await MemoryStore.open()
     if store == "fsspec":
