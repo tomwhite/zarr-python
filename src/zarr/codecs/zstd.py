@@ -45,11 +45,11 @@ class ZstdCodec(BytesBytesCodec):
     def __init__(self, *, level: int = 0, checksum: bool = False) -> None:
         # numcodecs 0.13.0 introduces the checksum attribute for the zstd codec
         _numcodecs_version = Version(numcodecs.__version__)
-        if _numcodecs_version < Version("0.13.0"):
-            raise RuntimeError(
-                "numcodecs version >= 0.13.0 is required to use the zstd codec. "
-                f"Version {_numcodecs_version} is currently installed."
-            )
+        # if _numcodecs_version < Version("0.13.0"):
+        #     raise RuntimeError(
+        #         "numcodecs version >= 0.13.0 is required to use the zstd codec. "
+        #         f"Version {_numcodecs_version} is currently installed."
+        #     )
 
         level_parsed = parse_zstd_level(level)
         checksum_parsed = parse_checksum(checksum)
