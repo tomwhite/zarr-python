@@ -36,6 +36,7 @@ repos:
           - typing_extensions
           - universal-pathlib
           - obstore>=0.5.1
+          - pyarrow
           # Tests
           - pytest
           - hypothesis

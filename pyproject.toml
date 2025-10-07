@@ -37,6 +37,7 @@ dependencies = [
     'numcodecs[crc32c]>=0.14',
     'typing_extensions>=4.9',
     'donfig>=0.8',
+    'pyarrow',
 ]
 
 dynamic = [
